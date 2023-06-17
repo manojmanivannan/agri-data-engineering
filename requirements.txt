@@ -1,0 +1,5 @@
+pandas
+#jupyter
+google-cloud
+google-cloud-bigquery
+mage-ai
