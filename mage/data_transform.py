@@ -35,6 +35,7 @@ def transform(df, *args, **kwargs):
         .reset_index()\
         .rename({'index':'crop_id','Crop':'crop_name','Production Units':'crop_measure'},axis=1)
     df_year = pd.DataFrame(data=df.Year.unique()).reset_index().rename({'index':'year_id',0:'year_name'},axis=1)
+    df_year['year'] = df_year['year_name'].map(lambda x: int(x[0:4]))
     df_season = pd.DataFrame(data=df.Season.unique()).reset_index().rename({'index':'season_id',0:'season_type'},axis=1)
     df_area = pd.DataFrame(data=df.Area.unique()).reset_index().rename({'index':'area_id',0:'area_value'},axis=1)
     fact_table = df.merge(df_state,left_on='State',right_on='state_name')\
