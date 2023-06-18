@@ -43,7 +43,7 @@ def transform(df, *args, **kwargs):
         .merge(df_season,left_on='Season',right_on='season_type')\
         .merge(df_area,left_on='Area',right_on='area_value')\
         .merge(df_crop,left_on='Crop',right_on='crop_name')\
-        [['district_id','state_id','year_id','season_id','crop_id','Production','Yield']]\
+        [['district_id','state_id','year_id','season_id','area_id','crop_id','Production','Yield']]\
         .dropna(axis=0).reset_index().rename({'index':'id'},axis=1)
 
 
